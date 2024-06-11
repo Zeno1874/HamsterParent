@@ -5,59 +5,73 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zeno.parent.HamsterParentApplication;
+
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
  * 用户订阅表
+ *
  * @TableName TblUserSubscription
  */
-@TableName(value ="TblUserSubscription")
+@Schema(description = "用户订阅")
+@TableName(value = "TblUserSubscription")
 @Data
 public class UserSubscriptionDo extends HamsterParentApplication implements Serializable {
     /**
      * 订阅ID
      */
     @TableId(value = "subscription_id", type = IdType.AUTO)
+    @Schema(description = "订阅ID")
     private Long subscription_id;
 
     /**
      * 订阅UUID
      */
     @TableField(value = "subscription_uuid")
+    @Schema(description = "业务ID")
     private String subscription_uuid;
 
     /**
      * 用户UUID
      */
     @TableField(value = "user_uuid")
+    @Schema(description = "用户业务ID")
     private String user_uuid;
 
     /**
      * 订阅日期
      */
     @TableField(value = "subscription_date")
+    @Schema(description = "订阅日期")
     private LocalDateTime subscription_date;
 
     /**
      * 订阅状态
      */
     @TableField(value = "status")
+    @Schema(description = "订阅状态")
     private String status;
 
     /**
      * 创建时间
      */
     @TableField(value = "created_at")
+    @Schema(description = "创建时间")
     private LocalDateTime created_at;
 
     /**
      * 更新时间
      */
     @TableField(value = "updated_at")
+    @Schema(description = "更新时间")
     private LocalDateTime updated_at;
 
+    @Serial
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
@@ -74,12 +88,12 @@ public class UserSubscriptionDo extends HamsterParentApplication implements Seri
         }
         UserSubscriptionDo other = (UserSubscriptionDo) that;
         return (this.getSubscription_id() == null ? other.getSubscription_id() == null : this.getSubscription_id().equals(other.getSubscription_id()))
-            && (this.getSubscription_uuid() == null ? other.getSubscription_uuid() == null : this.getSubscription_uuid().equals(other.getSubscription_uuid()))
-            && (this.getUser_uuid() == null ? other.getUser_uuid() == null : this.getUser_uuid().equals(other.getUser_uuid()))
-            && (this.getSubscription_date() == null ? other.getSubscription_date() == null : this.getSubscription_date().equals(other.getSubscription_date()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
-            && (this.getCreated_at() == null ? other.getCreated_at() == null : this.getCreated_at().equals(other.getCreated_at()))
-            && (this.getUpdated_at() == null ? other.getUpdated_at() == null : this.getUpdated_at().equals(other.getUpdated_at()));
+                && (this.getSubscription_uuid() == null ? other.getSubscription_uuid() == null : this.getSubscription_uuid().equals(other.getSubscription_uuid()))
+                && (this.getUser_uuid() == null ? other.getUser_uuid() == null : this.getUser_uuid().equals(other.getUser_uuid()))
+                && (this.getSubscription_date() == null ? other.getSubscription_date() == null : this.getSubscription_date().equals(other.getSubscription_date()))
+                && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+                && (this.getCreated_at() == null ? other.getCreated_at() == null : this.getCreated_at().equals(other.getCreated_at()))
+                && (this.getUpdated_at() == null ? other.getUpdated_at() == null : this.getUpdated_at().equals(other.getUpdated_at()));
     }
 
     @Override

@@ -1,15 +1,16 @@
-package com.zeno.parent.vo;
+package com.zeno.parent.common.response;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
  * 响应信息主体
- *
- * @author ruoyi
  */
+@Schema(description = "通用返回结果")
 @Getter
 @Setter
 public class R<T> implements Serializable {
@@ -22,11 +23,16 @@ public class R<T> implements Serializable {
      */
     public static final int FAIL = 500;
 
+    @Serial
     private static final long serialVersionUID = 1L;
+
+    @Schema(description = "返回状态码")
     private int code;
 
+    @Schema(description = "提示消息")
     private String msg;
 
+    @Schema(description = "数据")
     private T data;
 
     public static <T> R<T> ok() {
@@ -77,16 +83,5 @@ public class R<T> implements Serializable {
         return R.SUCCESS == ret.getCode();
     }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
 }
 

@@ -5,34 +5,44 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zeno.parent.HamsterParentApplication;
+
+import java.io.Serial;
 import java.io.Serializable;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
  * 用户信息表
+ *
  * @TableName TblUser
  */
-@TableName(value ="TblUser")
+@Schema(description = "用户")
+@TableName(value = "TblUser")
 @Data
 public class UserDo extends HamsterParentApplication implements Serializable {
     /**
      * 用户ID
      */
     @TableId(value = "user_id", type = IdType.AUTO)
+    @Schema(description = "用户ID")
     private Long user_id;
 
     /**
      * 用户UUID
      */
     @TableField(value = "user_uuid")
+    @Schema(description = "业务ID")
     private String user_uuid;
 
     /**
      * 电子邮件地址
      */
     @TableField(value = "email")
+    @Schema(description = "电子邮件")
     private String email;
 
+    @Serial
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
@@ -49,8 +59,8 @@ public class UserDo extends HamsterParentApplication implements Serializable {
         }
         UserDo other = (UserDo) that;
         return (this.getUser_id() == null ? other.getUser_id() == null : this.getUser_id().equals(other.getUser_id()))
-            && (this.getUser_uuid() == null ? other.getUser_uuid() == null : this.getUser_uuid().equals(other.getUser_uuid()))
-            && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()));
+                && (this.getUser_uuid() == null ? other.getUser_uuid() == null : this.getUser_uuid().equals(other.getUser_uuid()))
+                && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()));
     }
 
     @Override

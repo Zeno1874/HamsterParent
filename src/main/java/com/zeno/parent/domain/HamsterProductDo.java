@@ -5,66 +5,81 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zeno.parent.HamsterParentApplication;
+
+import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
  * 仓鼠用品表
+ *
  * @TableName TblHamsterProduct
  */
-@TableName(value ="TblHamsterProduct")
+@Schema(description = "仓鼠用品")
+@TableName(value = "TblHamsterProduct")
 @Data
 public class HamsterProductDo extends HamsterParentApplication implements Serializable {
     /**
      * 产品ID
      */
     @TableId(value = "product_id", type = IdType.AUTO)
+    @Schema(description = "产品ID")
     private Long product_id;
 
     /**
      * 产品UUID
      */
     @TableField(value = "product_uuid")
+    @Schema(description = "业务ID")
     private String product_uuid;
 
     /**
      * 产品名称
      */
     @TableField(value = "name")
+    @Schema(description = "产品名称")
     private String name;
 
     /**
      * 产品类别
      */
     @TableField(value = "category")
+    @Schema(description = "产品类别")
     private String category;
 
     /**
      * 产品价格(元)
      */
     @TableField(value = "price")
+    @Schema(description = "产品价格")
     private BigDecimal price;
 
     /**
      * 库存数量
      */
     @TableField(value = "stock_quantity")
+    @Schema(description = "库存数量")
     private Integer stock_quantity;
 
     /**
      * 创建时间
      */
     @TableField(value = "created_at")
+    @Schema(description = "创建时间")
     private LocalDateTime created_at;
 
     /**
      * 更新时间
      */
     @TableField(value = "updated_at")
+    @Schema(description = "更新时间")
     private LocalDateTime updated_at;
 
+    @Serial
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
@@ -81,13 +96,13 @@ public class HamsterProductDo extends HamsterParentApplication implements Serial
         }
         HamsterProductDo other = (HamsterProductDo) that;
         return (this.getProduct_id() == null ? other.getProduct_id() == null : this.getProduct_id().equals(other.getProduct_id()))
-            && (this.getProduct_uuid() == null ? other.getProduct_uuid() == null : this.getProduct_uuid().equals(other.getProduct_uuid()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getCategory() == null ? other.getCategory() == null : this.getCategory().equals(other.getCategory()))
-            && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
-            && (this.getStock_quantity() == null ? other.getStock_quantity() == null : this.getStock_quantity().equals(other.getStock_quantity()))
-            && (this.getCreated_at() == null ? other.getCreated_at() == null : this.getCreated_at().equals(other.getCreated_at()))
-            && (this.getUpdated_at() == null ? other.getUpdated_at() == null : this.getUpdated_at().equals(other.getUpdated_at()));
+                && (this.getProduct_uuid() == null ? other.getProduct_uuid() == null : this.getProduct_uuid().equals(other.getProduct_uuid()))
+                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+                && (this.getCategory() == null ? other.getCategory() == null : this.getCategory().equals(other.getCategory()))
+                && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
+                && (this.getStock_quantity() == null ? other.getStock_quantity() == null : this.getStock_quantity().equals(other.getStock_quantity()))
+                && (this.getCreated_at() == null ? other.getCreated_at() == null : this.getCreated_at().equals(other.getCreated_at()))
+                && (this.getUpdated_at() == null ? other.getUpdated_at() == null : this.getUpdated_at().equals(other.getUpdated_at()));
     }
 
     @Override

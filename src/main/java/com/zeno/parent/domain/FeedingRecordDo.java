@@ -5,66 +5,81 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zeno.parent.HamsterParentApplication;
+
+import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
  * 喂养记录表
+ *
  * @TableName TblFeedingRecord
  */
-@TableName(value ="TblFeedingRecord")
+@Schema(description = "喂养记录")
+@TableName(value = "TblFeedingRecord")
 @Data
 public class FeedingRecordDo extends HamsterParentApplication implements Serializable {
     /**
      * 喂养记录ID
      */
     @TableId(value = "feeding_id", type = IdType.AUTO)
+    @Schema(description = "喂养记录ID")
     private Long feeding_id;
 
     /**
      * 喂养UUID
      */
     @TableField(value = "feeding_uuid")
+    @Schema(description = "业务ID")
     private String feeding_uuid;
 
     /**
      * 仓鼠UUID
      */
     @TableField(value = "hamster_uuid")
+    @Schema(description = "仓鼠业务ID")
     private String hamster_uuid;
 
     /**
      * 喂养时间
      */
     @TableField(value = "feed_time")
+    @Schema(description = "喂养时间")
     private LocalDateTime feed_time;
 
     /**
      * 食物类型
      */
     @TableField(value = "food_type")
+    @Schema(description = "食物类型")
     private String food_type;
 
     /**
      * 食物数量
      */
     @TableField(value = "quantity")
+    @Schema(description = "食物数量")
     private BigDecimal quantity;
 
     /**
      * 创建时间
      */
     @TableField(value = "created_at")
+    @Schema(description = "创建时间")
     private LocalDateTime created_at;
 
     /**
      * 更新时间
      */
     @TableField(value = "updated_at")
+    @Schema(description = "更新时间")
     private LocalDateTime updated_at;
 
+    @Serial
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
@@ -81,13 +96,13 @@ public class FeedingRecordDo extends HamsterParentApplication implements Seriali
         }
         FeedingRecordDo other = (FeedingRecordDo) that;
         return (this.getFeeding_id() == null ? other.getFeeding_id() == null : this.getFeeding_id().equals(other.getFeeding_id()))
-            && (this.getFeeding_uuid() == null ? other.getFeeding_uuid() == null : this.getFeeding_uuid().equals(other.getFeeding_uuid()))
-            && (this.getHamster_uuid() == null ? other.getHamster_uuid() == null : this.getHamster_uuid().equals(other.getHamster_uuid()))
-            && (this.getFeed_time() == null ? other.getFeed_time() == null : this.getFeed_time().equals(other.getFeed_time()))
-            && (this.getFood_type() == null ? other.getFood_type() == null : this.getFood_type().equals(other.getFood_type()))
-            && (this.getQuantity() == null ? other.getQuantity() == null : this.getQuantity().equals(other.getQuantity()))
-            && (this.getCreated_at() == null ? other.getCreated_at() == null : this.getCreated_at().equals(other.getCreated_at()))
-            && (this.getUpdated_at() == null ? other.getUpdated_at() == null : this.getUpdated_at().equals(other.getUpdated_at()));
+                && (this.getFeeding_uuid() == null ? other.getFeeding_uuid() == null : this.getFeeding_uuid().equals(other.getFeeding_uuid()))
+                && (this.getHamster_uuid() == null ? other.getHamster_uuid() == null : this.getHamster_uuid().equals(other.getHamster_uuid()))
+                && (this.getFeed_time() == null ? other.getFeed_time() == null : this.getFeed_time().equals(other.getFeed_time()))
+                && (this.getFood_type() == null ? other.getFood_type() == null : this.getFood_type().equals(other.getFood_type()))
+                && (this.getQuantity() == null ? other.getQuantity() == null : this.getQuantity().equals(other.getQuantity()))
+                && (this.getCreated_at() == null ? other.getCreated_at() == null : this.getCreated_at().equals(other.getCreated_at()))
+                && (this.getUpdated_at() == null ? other.getUpdated_at() == null : this.getUpdated_at().equals(other.getUpdated_at()));
     }
 
     @Override
