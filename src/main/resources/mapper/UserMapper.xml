@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeno.parent.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.zeno.parent.domain.UserDo">
+            <id property="user_id" column="user_id" jdbcType="BIGINT"/>
+            <result property="user_uuid" column="user_uuid" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        user_id,user_uuid,email
+    </sql>
+</mapper>
